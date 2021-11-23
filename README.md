@@ -1,108 +1,168 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# To Do List Django APP with user authentication
+[Live Link](https://msp4-todoapp.herokuapp.com/)
+![Mockup-image](rm-images/Responsive-image.png)
 
-Welcome Steve Alsamarae,
+- ### This responsive, simplistic aesthetically pleasing app is designed using(CRUD) for people to create, read, update and delete their daily tasks, offers full functionality and benefits for the user.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Features:
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+* ### Main Page:
+![Main-page](rm-images/main-page.png)
+- Main page offers a search task functionality, add task functionality, edit functionality, task counter, task list and a logout functionality:
 
-## Gitpod Reminders
+    - ![Main-page](rm-images/task-counter.png)
+      - Task counter, automatically counts and presents the amount of task the user has listed.\
+      <br>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+    - ![Search-engine](rm-images/search-engine.png)
+      - Search bar functionality, allows the user to search a specified task.\
+      <br>
 
-`python3 -m http.server`
+    - ![Search-word](rm-images/search-word.png)
+      - User can look up tasks by searching their first letter.\
+      <br>
 
-A blue button should appear to click: _Make Public_,
+    - ![Confirm-delete](rm-images/confirm-delete.png)
+      - When user clicks on the x icon next to task, user will be automatically redirected to a delete confirm page.
+      - If confirmed, task will then be deleted from user's list.\
+      <br>
+    - ![New-task](rm-images/create-task.png)
+      - When user clicks on the + icon on the main page, user will then be automatically redirected to the create task page.
+      - User can then specifiy the title of the task, it's description, whether task is complete or incomplete and submit task.\
+      <br>
+    
+    - ![Created-task](rm-images/created-task.png)
+      - When user clicks on a created task on the main page, user will be redirected to the creation page of that specific task.
+      - Where user has the ability to edit or mark the task as complete/incomplete.\
+      <br>
+    - ![Compeleted-task](rm-images/completed-task.png)
+      - If the user ticks the compelete box on the task's creation page, the task will appear at the bottom of the main page, in a strike through text, and a green light that declares that the task is completed.\
+      <br>
+* ### User Authentication:
+![Login-page](rm-images/login-page.png)
+- Login page(home page), user will land on the login page when opening the page, if the user is not already logged in.
+- User can also navigate to the login the page by clicking the 'Logout' button on the app's main page.
+- User can input his/her username and password to login.
+- If user doesn't already have an account, user can click on the 'Register' button\
+      <br>
 
-Another blue button should appear to click: _Open Browser_.
+  - ![Register-page](rm-images/register.png)
+    - If user clicks on 'Register' on the login page, user will be redirected to this registeration page
+    - User will have to create an account username and password.\
+    <br>
+  - ![logged-in](rm-images/logged-in.png)
+    - Once user creates an account, user will be automatically redirected to app's main page, logged in.
+    - This page welcomes the user with an automated message.
+    - Enables user access to all app's functionality
+    - Create a new task button will be visible, if the user have not created any tasks yet.\
+    <br>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Incomplete/unimplemented features
+- JS Based drag and order tasks features, drag n drop:
+  - Feature implemented but in complete, user gets an error when they attempt to drag and reorder tasks.\
+<br>
+- Built in testing:
+  - Django testing
+  - Python testing
+  - Testing with Jest
+  - Testing with framework\
+  <br>
 
-A blue button should appear to click: _Make Public_,
+## Technologies used
+- CRUD
+- Django
+- Python
+- JS
+- HTML
+- CSS
+- Github
+- Gitpod
+- Heroku
+- Heroku Postgres
+- MVC Framework
+- Code Institute template
+- Agile method (User stories)
+- Online Testers and validators
+- Chrome developer tool
 
-Another blue button should appear to click: _Open Browser_.
+## Bugs
+- Drag and order feature bug, when user tries to drag and reorder task, page will break.
+- Terminal errors
+   - Line too long errors
+   - Unused imports errors
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Testings
+All app's features and interactivity function as intended, various testings were conducted.\
+<br>
 
-To log into the Heroku toolbelt CLI:
+- Lighthouse\
+<br>
+![Lighthouse-Report](rm-images/Lighthouse-Report.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- Python, No errors, tested on all pages.\
+<br>
+![Python-syn](rm-images/Python-syn-checker.png)\
+<br>
+![Python-checker](rm-images/Pythonchecker.png)\
+<br>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- HTML
+   - No errors returned when passing through the official [W3C Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
 
-------
+ - CSS
+   - No errors were found when passing through the official [(Jigsaw) Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
 
-## Release History
+- JS
+  - No errors were found when passing through [JSHint](https://jshint.com/)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## User stories
+![User-stories](rm-images/user-stories.png)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Deployment
+Live link: https://msp4-todoapp.herokuapp.com/
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+Gihub Repo: https://github.com/SteveAlsamarae/MSP4-ToDoApp
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## App Wireframes
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+![Wireframe](rm-images/wireframe.png)
+![Wireframe](rm-images/task-wireframe.png)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Credits
+* Credits Code Institude, Help from mentor, and the slack community.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+* Credits Code Institude tutor support
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* Credits Code Institude Igor
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+* Credits Code Institude Johann
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* Credits Code Institude Alan
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* Credits Code Institude Sandeep
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* Credits to University of Oxford
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* Credits to https://docs.djangoproject.com/en/3.1/ref/class-based-views/
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* Credits to http://ccbv.co.uk/
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* Credits to https://jshint.com/ 
 
-------
+* Credits to https://jshint.com/ 
 
-## FAQ about the uptime script
+* Credits to https://validator.w3.org/ 
 
-**Why have you added this script?**
+* Credits to https://jigsaw.w3.org/css-validator/ 
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+* Credits to https://www.pythonchecker.com/
 
-**How will this affect me?**
+* Credits to https://extendsclass.com/python-tester.html
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+* Credits to http://pep8online.com/
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+* Credits to https://cs50.edx.org/
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+* Credits to https://codeinstitute.net/
 
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+The concept of this app is not original.
