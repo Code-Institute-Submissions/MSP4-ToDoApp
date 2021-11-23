@@ -9,7 +9,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
+# Imports for Reordering Feature
+from django.views import View
+from django.shortcuts import redirect
+from django.db import transaction
+
 from .models import Task
+from .forms import PositionForm
 
 
 class CustomLoginView(LoginView):
@@ -19,6 +25,7 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('tasks')
+
 
 class RegisterPage(FormView):
     template_name = 'todolist/register.html'
@@ -38,7 +45,6 @@ class RegisterPage(FormView):
         return super(RegisterPage, self).get(*args, **kwargs)
 
 
-
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
@@ -51,7 +57,7 @@ class TaskList(LoginRequiredMixin, ListView):
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
             context['tasks'] = context['tasks'].filter(
-                title__startswith=search_input)
+                title__contains=search_input)
 
         context['search_input'] = search_input
 
@@ -62,6 +68,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
     template_name = 'todolist/task.html'
+
 
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
@@ -78,7 +85,23 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
     fields = ['title', 'description', 'complete']
     success_url = reverse_lazy('tasks')
 
+
 class DeleteView(LoginRequiredMixin, DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
+    def get_queryset(self):
+        owner = self.request.user
+        return self.model.objects.filter(user=owner)
+
+class TaskReorder(View):
+    def post(self, request):
+        form = PositionForm(request.POST)
+
+        if form.is_valid():
+            positionList = form.cleaned_data["position"].split(',')
+
+            with transaction.atomic():
+                self.request.user.set_task_order(positionList)
+
+        return redirect(reverse_lazy('tasks'))
